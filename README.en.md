@@ -5,7 +5,7 @@
 *Translated from [强迫症的 Mac 设置指南](https://github.com/macdao/ocds-guide-to-setting-up-mac#强迫症的-mac-设置指南), thanks to author: QiXi from Thoughtworks China - fff*
 
 ## Table of Contents
-  * [1. OS X](#1-os-x)
+  * [1. macOS](#1-macos)
     * [Function Keys](#function-keys)
     * [Keyboard Only Control](#keyboard-only-control)
     * [Others](#others)
@@ -16,12 +16,12 @@
     * [Remove all Dock icons[OCD]](#remove-all-dock-icons[ocd])
     * [Reset the order of icons on Launchpad[OCD]](#reset-the-order-of-icons-on-launchpad[ocd])
     * [Keychain Access](#keychain-access)
+    * [Efficient Cursor](#efficient-cursor)
   * [2. Daily Tools](#2-daily-tools)
     * [Homebrew](#homebrew)
     * [Homebrew Cask](#homebrew-cask)
     * [iTerm2](#iterm2)
     * [Oh My Zsh](#oh-my-zsh)
-    * [Stow](#stow)
     * [Git Alias](#git-alias)
     * [ShiftIt](#shiftit)
     * [Sublime Text 2](#sublime-text-2)
@@ -32,6 +32,7 @@
     * [SourceTree](#sourcetree)
     * [CheatSheet](#cheatsheet)
     * [Alfred](#alfred)
+    * [Stow](#stow)
   * [3. Tools for developers](#3-tools-for-developers)
     * [Java](#java)
     * [rbenv](#rbenv)
@@ -85,9 +86,9 @@ Several points of efficient Mac environment in my opinion:
 
 
 
-## 1. OS X
+## 1. macOS
 
-Things related with OS X settings.
+Things related with macOS settings.
 
 ### Function Keys
 
@@ -137,7 +138,7 @@ Goto `System Preferences` > `Trackpad`，check `Tap to click` in `Point & Click`
 
 ### Voice
 
-OS X can speak by：
+macOS can speak by：
 
 ```sh
 say hello
@@ -198,9 +199,15 @@ defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock
 
 ### Keychain Access
 
-Keychain Access is a Mac OS X application. It can be used to find saved accounts and passwords including Wi-Fi password.
+Keychain Access is a macOS application. It can be used to find saved accounts and passwords including Wi-Fi password.
 
 *Some lines are missing here. As not helping a lot - fff*
+
+### Efficient Cursor
+
+By default, cursor has pretty slow blinking and moving speed. When you need delete a large paragraphs of text by pressing the backspace, you are probably wasting your time. Even you hold the backspace key hardly, the cursor is still as slow as a snail.
+
+Speed up cursor: Go to `System Preferences` > `Keyboard`, move `Key Repeat` and `Delay Until Repeat` slidebars to rightmost under `Keyboard` tab. Enjoy your speed now!
 
 ## 2. Daily Tools
 
@@ -208,7 +215,7 @@ Some routine software, and not necessarily related to development.
 
 ### [Homebrew](http://brew.sh)
 
-Package management, official description: "The missing package manager for OS X".
+Package management, official description: "The missing package manager for macOS".
 
 Go to official site for installation steps.
 
@@ -224,22 +231,23 @@ PS: install brew will download and install Apple Command Line Tools automaticall
 
 ### [Homebrew Cask](https://caskroom.github.io/)
 
-brew-cask helps you to install OS X Applications. Like to install Chrome：`brew cask install google-chrome`. Also Evernote, Skype, Sublime Text, VirtualBox, Java7 ...
+brew-cask helps you to install macOS Applications. Like to install Chrome：`brew cask install google-chrome`. Also Evernote, Skype, Sublime Text, VirtualBox, Java7 ...
 
 brew-cask is driven by community, you may raise a pull request when you found any missing or outdated application.
 
 You can find the installation method on offical website.
 
 You would like to search if you not sure if some application is already in cask.
+
 ```sh
-brew cask search java7
+brew search java
 ```
 
 *Some lines are missing here. As not helping a lot - fff*
 
 ### [iTerm2](https://www.iterm2.com/)
 
-iTerm2 is the most widely used terminal tool, considered as the replacement of Terminal. It provides [a group of practical features](https://www.iterm2.com/features.html), including `Split Panes`. Its default black background makes me throw away OS X' inbuilt Terminal application without any hesitation.
+iTerm2 is the most widely used terminal tool, considered as the replacement of Terminal. It provides [a group of practical features](https://www.iterm2.com/features.html), including `Split Panes`. Its default black background makes me throw away macOS' inbuilt Terminal application without any hesitation.
 
 Installation:
 
@@ -285,19 +293,6 @@ Oh-My-Zsh gets [more valuable plugins](https://github.com/robbyrussell/oh-my-zsh
 
 Besides Oh-My-Zsh, there is [Oh My Fish](https://github.com/oh-my-fish/oh-my-fish)，which based on [Fishshell](http://fishshell.com/).
 
-### [Stow](http://www.gnu.org/software/stow/)
-GNU stow is the super girl(-.-) of symlink management. Mainly it's used to symlink your [dotfiles](http://dotfiles.github.io/), like emacs，git configuration files of fish/zsh.
-
-Installation:
-
-```
-brew install stow
-```
-
-After installing, we can symlink the dotfiles. The full instructions for stow and dotfiles are here:<https://github.com/jcouyang/dotfiles>.
-
-After symlinking all your dotfiles to `~/dotfiles`, push it to github. There is no worries any more for setuping another new laptop.
-
 ### Git Alias
 
 Almost everyone is looking for ways to increase their efficiency, like git alias, using `git st` instead of `git status`. But it requires some manual configuration, which makes everyone's configuration differ.
@@ -324,16 +319,13 @@ gst   | `git status`
 gup   | `git pull --rebase`
 gwip  | `git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit -m "--wip--"`
 
-
 The full list is here: <https://github.com/robbyrussell/oh-my-zsh/wiki/Plugin:git>, or simply run command `alias | grep git` in Oh-My-Zsh window.
-
 
 *Some lines are missing here. As not helping a lot - fff*
 
-
 ### ShiftIt
 
-In OS X you only can adjust window size by dragging. I've tried lots of window management tools, but most of them have the conflict key mapping(mostly with IntelliJ IDEA). ShiftIt is the apparently rare one without any conflicts.
+In macOS you only can adjust window size by dragging. I've tried lots of window management tools, but most of them have the conflict key mapping(mostly with IntelliJ IDEA). ShiftIt is the apparently rare one without any conflicts.
 
 Installation:
 
@@ -395,7 +387,7 @@ For firefox there is a similar solution: [KeySnail](https://github.com/mooz/keys
 
 ### [LastPass](https://lastpass.com)
 
-LastPass is a password management tool, support a second login step, provides plugins for every browser and also OS X desktop version.
+LastPass is a password management tool, support a second login step, provides plugins for every browser and also macOS desktop version.
 
 The most important thing, it provides **command line** version, install it by:
 
@@ -451,13 +443,28 @@ Installation:
 brew cask install alfred
 ```
 
+### [Stow](http://www.gnu.org/software/stow/)
+
+GNU stow is the super girl(-.-) of symlink management. Mainly it's used to symlink your [dotfiles](http://dotfiles.github.io/), like Emacs，Git configuration files of fish shell/Zsh.
+
+Installation:
+
+```
+brew install stow
+```
+
+After installing, we can symlink the dotfiles. The full instructions for stow and dotfiles are here:<https://github.com/jcouyang/dotfiles>.
+
+After symlinking all your dotfiles to `~/dotfiles`, push it to github. There is no worries any more for setuping another new laptop.
+
 ## 3. Tools for developers
 
 ### Java
 
-There is no default JDK any more for new version of OS X, so you need to download and install it before you want to do some Java projects.
+There is no default JDK any more for new version of macOS, so you need to download and install it before you want to do some Java projects.
 
 Before brew-cask, we are used to download from: <https://developer.apple.com/downloads/>. But the drawback is that uninstall or upgrades take significant time.
+
 For JDK package, which is pkg format, there is no automatic way to uninstall it.
 
 But good news is brew-cask can do it for you:
@@ -466,16 +473,16 @@ But good news is brew-cask can do it for you:
 brew cask install java
 ```
 
-If you need Java-7 or Java-6, you can get from `homebrew-cask-versions`：
+If you need Java-11 or Java-6, you can get from [homebrew-cask-versions](https://github.com/Homebrew/homebrew-cask-versions)：
 
 ```sh
-brew tap caskroom/versions
-brew cask install java6
+brew tap homebrew/cask-versions
+brew cask install java11
 ```
 
-You can install several versions of JDK in Mac OS X, `/usr/libexec/java_home -V` will list all of them.
+You can install several versions of JDK in macOS, `/usr/libexec/java_home -V` will list all of them.
 
-So here is the problem, Which one is the one used by running `java` or any Java application? normally, OS X invokes the newest version of all those installed JDK versions. But you can change it by set `JAVA_HOME`:
+So here is the problem, Which one is the one used by running `java` or any Java application? normally, macOS invokes the newest version of all those installed JDK versions. But you can change it by set `JAVA_HOME`:
 
 ```sh
 $ java -version
@@ -489,6 +496,9 @@ Java HotSpot(TM) 64-Bit Server VM (build 20.65-b04-466.1, mixed mode)
 ```
 
 You may change `JAVA_HOME=/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home` into `` JAVA_HOME=`/usr/libexec/java_home -v 1.6` ``, which is more widely used.
+
+
+Need to install JDK 8/9? Due to [Java8 not working anymore](https://github.com/Homebrew/homebrew-cask-versions/issues/7253), brew-cask does not privde those Oracle JDK any more. You can try [AdoptOpenJDK](https://github.com/AdoptOpenJDK/homebrew-openjdk) or download pkg from [Oracle](https://www.oracle.com).
 
 *Some lines are missing here. As not helping a lot - fff*
 
